@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block content%}
+<div class="content1">
+    <h1 class="heading">DEEP FAKE DETECTION</h1>
+    <div class="graph-container">
+        <h3 style="color: #fff;">Train and Validation Loss</h3>
+        <canvas class="graph-each" id="lossChart" width="800" height="400"></canvas>
+        <h3 style="color: #fff;padding-top: 20px;">Train and Validation Accuracy</h3>
+        <canvas class="graph-each" id="accuracyChart" width="800" height="400"></canvas>
+    </div>
+</div>
+{%endblock%}
+
+{% block body_class %}statistics{% endblock %}

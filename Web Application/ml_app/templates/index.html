@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block content%}
+<div class="bg" >
+<div class="content">
+        <h1 class="heading">DEEP FAKE DETECTION</h1>
+        <div class="row align-items-center justify-content-center">
+        <div class="col-12 my-auto">
+            <div class="width-400">
+                <video width="100%" controls id="videos">
+                    <source src="" id="video_source">
+                    Your browser does not support HTML5 video.
+                </video>
+                <form class="form" method="POST" enctype="multipart/form-data" name="video-upload" id="video-upload"
+                    class="text-center mt-3">
+                    {%csrf_token%}
+                    <div class="form-group">
+                        <label>{{form.upload_video_file.widget}}</label>
+                        {{form.upload_video_file}}
+                        {%if form.upload_video_file.errors%}
+                        {%for each_error in form.upload_video_file.errors%}
+                        <div class="alert alert-danger mt-1 {{form.upload_video_file.id_for_label}}">
+                            {{each_error}}
+                        </div>
+                        {%endfor%}
+                        {%endif%}
+                    </div>
+                    <button id="videoUpload" type="submit" name="submit" class="btn btn-success mt-3 btn-block">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{%endblock%}
+{%block js_cripts%}
+<script src="{%static 'js/script.js'%}"></script>
+{%endblock%}
+
+{% block body_class %}index{% endblock %}
+
